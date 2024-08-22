@@ -1,7 +1,0 @@
-version: '2'
-services:
-  element_0:
-    image: 'my-web-server:latest'
-    stdin_open: true
-    tty: true
-networks: {}
