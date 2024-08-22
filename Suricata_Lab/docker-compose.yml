@@ -1,0 +1,32 @@
+version: '2'
+services:
+  routeur:
+    image: 'dockersecplayground/alpine_router:v1.0'
+    stdin_open: true
+    tty: true
+    networks:
+      Internal_Network_1: {}
+      Internal_Network_0: {}
+    cap_add:
+      - ALL
+  suricata_cli:
+    image: 'ubuntu-suricata:latest'
+    stdin_open: true
+    tty: true
+    networks:
+      Internal_Network_0: {}
+  ubuntu_cli:
+    image: 'ubuntu:latest'
+    stdin_open: true
+    tty: true
+    networks:
+      Internal_Network_1: {}
+networks:
+  Internal_Network_0:
+    ipam:
+      config:
+        - subnet: 193.168.1.1/24
+  Internal_Network_1:
+    ipam:
+      config:
+        - subnet: 193.168.2.1/24
